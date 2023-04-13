@@ -54,13 +54,28 @@ fastqc -o fastqc_raw reads1.fastq.gz reads2.fastq.gz
 Installation
 ```sh
 conda create -n bwa_env
+conda activate bwa_env
 conda install -c bioconda bwa
 conda install -c bioconda samtools
+
+# when you are done with it
+conda deactivate
 ```
 
+Mapping the reads to the reference assembly
 ```sh
 bwa index Ppr.eifel.hap0.chr9.fasta
 bwa mem -t 2 -o mapping.sam Ppr.eifel.hap0.chr9.fasta reads1.fastq.gz reads2.fastq.gz
+```
+
+Converting the SAM file (human readable) to a BAM file (binary, much lighter)
+```sh
+samtools view -@ 2 -b -o mapping.sam mapping.bam
+```
+
+Sorting the mapping fille
+```sh
+samtools sort -@ 2 -o mapping.sorted.bam mapping.bam
 ```
 
 ## Generate VCF
