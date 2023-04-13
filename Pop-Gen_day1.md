@@ -3,6 +3,13 @@
 ## Assembly statistics 
 
 [assembly-stats](https://github.com/sanger-pathogens/assembly-stats)
+
+Installation
+```sh
+conda install -c bioconda assembly-stats
+```
+
+Getting assembly statistics
 ```sh
 assembly-stats Ppr.eifel.hap0.chr9.fasta
 ```
@@ -18,10 +25,22 @@ N100 = 18765566, n = 1
 N_count = 1530
 Gaps = 6
 ``` 
+
 ## Data cleaning
 
 [FastQC](https://github.com/s-andrews/FastQC)
 
+Installation 
+```sh
+conda create -n fastqc_env 
+conda activate fastqc_env
+conda install -c bioconda fastqc
+
+# and when you are done with it
+conda deactivate
+```
+
+Running quality control
 ```sh
 mkdir fastqc_raw
 fastqc -o fastqc_raw reads1.fastq.gz reads2.fastq.gz
