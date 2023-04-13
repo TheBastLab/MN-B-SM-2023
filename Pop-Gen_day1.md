@@ -47,8 +47,21 @@ fastqc -o fastqc_raw reads1.fastq.gz reads2.fastq.gz
 ```
 
 ## Mapping
-bowtie2, bwa
-samtools view, samtools sort
+
+[BWA](https://github.com/lh3/bwa)
+[SAMtools](https://github.com/samtools/samtools)
+
+Installation
+```sh
+conda create -n bwa_env
+conda install -c bioconda bwa
+conda install -c bioconda samtools
+```
+
+```sh
+bwa index Ppr.eifel.hap0.chr9.fasta
+bwa mem -t 2 -o mapping.sam Ppr.eifel.hap0.chr9.fasta reads1.fastq.gz reads2.fastq.gz
+```
 
 ## Generate VCF
 GATK
