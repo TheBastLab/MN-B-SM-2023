@@ -70,12 +70,17 @@ bwa mem -t 2 -o mapping.sam Ppr.eifel.hap0.chr9.fasta reads1.fastq.gz reads2.fas
 
 Converting the SAM file (human readable) to a BAM file (binary, much lighter)
 ```sh
-samtools view -@ 2 -b -o mapping.sam mapping.bam
+samtools view -@ 1 -b -o mapping.sam mapping.bam
 ```
 
 Sorting the mapping fille
 ```sh
-samtools sort -@ 2 -o mapping.sorted.bam mapping.bam
+samtools sort -@ 1 -o mapping.sorted.bam mapping.bam
+```
+
+Getting mapping statistics
+```sh
+samtools flagstat -@ 1 mapping.bam 
 ```
 
 ## Generate VCF
