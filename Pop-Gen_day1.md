@@ -84,4 +84,9 @@ samtools flagstat -@ 1 mapping.bam
 ```
 
 ## Generate VCF
-GATK
+
+[GATK](https://gatk.broadinstitute.org/hc/en-us)
+
+```sh
+gatk CreateSequenceDictionary -R Ppr.eifel.hap0.chr9.fasta -O Ppr.dict
+```
