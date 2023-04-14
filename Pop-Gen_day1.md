@@ -90,3 +90,23 @@ samtools flagstat -@ 1 mapping.bam
 ```sh
 gatk CreateSequenceDictionary -R Ppr.eifel.hap0.chr9.fasta -O Ppr.dict
 ```
+  
+  module avail
+  module add
+  module list
+  
+### call gvcf
+  $gatk HaplotypeCaller -R $ref --emit-ref-confidence GVCF -I $bam2 -O $gvcf2
+### merge them 
+  $gatk CombineGVCFs -R $ref -V $gvcf1 -V $gvcf2 -O merged_gvcf/$mergedgvc
+### detect SNPs
+  $gatk GenotypeGVCFs -R $ref -V $mergedgvcf -O $vcf
+### compress
+  bgzip -f $vcf
+  tabix -p vcf ${vcf}.gz    
+### Select only SNPs from VCF 
+  $gatk SelectVariants -select-type SNP -V ${vcf}.gz -O ${vcf}.snp.gz   
+### filter SNPs by parameters
+  $gatk VariantFiltration -V ${vcf}.snp.gz --filter-expression "QD <2.0 || MQ <40.0 || FS >60.0 || SOR >3.0 || ReadPosRankSum < -8.0" --filter-name "PASS" -O ${vcf}.snp.f.gz
+  
+  module purge
