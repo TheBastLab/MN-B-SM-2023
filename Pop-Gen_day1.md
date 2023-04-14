@@ -87,13 +87,13 @@ samtools flagstat -@ 1 mapping.bam
 
 [GATK](https://gatk.broadinstitute.org/hc/en-us)
 
-```sh
-gatk CreateSequenceDictionary -R Ppr.eifel.hap0.chr9.fasta -O Ppr.dict
-```
-  
     module avail
     module add
     module list
+
+```sh
+gatk CreateSequenceDictionary -R Ppr.eifel.hap0.chr9.fasta -O Ppr.dict
+```
   
 ### call gvcf
     $gatk HaplotypeCaller -R $ref --emit-ref-confidence GVCF -I $bam2 -O $gvcf2
