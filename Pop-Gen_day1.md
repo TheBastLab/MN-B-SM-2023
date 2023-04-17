@@ -85,6 +85,17 @@ Getting mapping statistics
 samtools flagstat -@ 1 mapping.bam 
 ```
 
+Indexing the BAM file
+```sh
+samtools index -@ mapping.sorted.bam
+```
+
+Indexing the reference assembly
+```sh
+samtools faidx Ppr.eifel.hap0.chr9.fasta
+```
+
+
 ## Generate VCF
 
 [GATK](https://gatk.broadinstitute.org/hc/en-us)
