@@ -65,7 +65,7 @@ conda deactivate
 Mapping the reads to the reference assembly
 ```sh
 bwa index Ppr.eifel.hap0.chr9.fasta
-bwa mem -t 2 -o mapping.sam Ppr.eifel.hap0.chr9.fasta reads1.fastq.gz 
+bwa mem -t 2 -M -R "@RG\tID:${i}\tLB:${i}\tPL:ILLUMINA\tSM:${i}" -o mapping.sam Ppr.eifel.hap0.chr9.fasta reads1.fastq.gz 
 ```
 
 Converting the SAM file (human readable) to a BAM file (binary, much lighter)
