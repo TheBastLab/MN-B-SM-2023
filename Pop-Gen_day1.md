@@ -65,6 +65,8 @@ conda deactivate
 Mapping the reads to the reference assembly
 ```sh
 bwa index Ppr.eifel.hap0.chr9.fasta
+
+i="samplename" #replace sample name by GE1, GE2, GE3, IT1, IT2, IT3, RU1, R2, R3...
 bwa mem -t 2 -M -R "@RG\tID:${i}\tLB:${i}\tPL:ILLUMINA\tSM:${i}" -o mapping.sam Ppr.eifel.hap0.chr9.fasta reads1.fastq.gz 
 ```
 
