@@ -2,6 +2,8 @@
 
 ## VCF and SNP matrix
 
+VCF contains more information than we usually need. For most downstream studies, the important data is what genotype each individual has on each variable site. This is usually presented as a matrix.
+
 ```
 chr1	10405	.	T	A	119.50	.	AC=2;AF=0.250;AN=8;DP=56;ExcessHet=0.3218;FS=0.000;MLEAC=1;MLEAF=0.125;MQ=34.26;QD=29.11;SOR=1.179	GT:AD:DP:GQ:PGT:PID:PL:PS	0/0:21,0:21:57:.:.:0,57,855	0/0:17,0:17:48:.:.:0,48,720	0/0:14,0:14:42:.:.:0,42,436	./.:1,0:1:.:.:.:0,0,0	1|1:0,3:3:9:1|1:10405_T_A:135,9,0:10405
 chr1	10430	.	A	T	330.61	.	AC=3;AF=0.375;AN=8;BaseQRankSum=-1.147e+00;DP=90;ExcessHet=1.0474;FS=8.080;MLEAC=3;MLEAF=0.375;MQ=45.77;MQRankSum=-3.970e+00;QD=11.02;ReadPosRankSum=0.291;SOR=1.137	GT:AD:DP:GQ:PGT:PID:PL:PS	0/0:23,0:23:60:.:.:0,60,900	0/0:24,0:24:23:.:.:0,23,746	0|1:17,7:25:99:0|1:10403_A_T:121,0,598:10403	./.:10,0:10:.:.:.:0,0,0	1|1:0,6:6:18:1|1:10405_T_A:226,18,0:10405
