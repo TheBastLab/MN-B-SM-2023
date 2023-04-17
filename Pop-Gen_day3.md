@@ -4,7 +4,9 @@
     module add
     module list
 
-# Data download //uni-koeln.sciebo.de/s/GzEojXd7k0I6i69 passwd atcg
+# Data download 
+    https://uni-koeln.sciebo.de/apps/files/?dir=/&fileid=605711394
+    passwd atcg
 
 # PCA
 ## What's PCA?
