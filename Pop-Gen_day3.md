@@ -3,7 +3,9 @@
     module avail
     module add
     module list
-    
+
+# Data download //uni-koeln.sciebo.de/s/GzEojXd7k0I6i69 passwd atcg
+
 # PCA
 ## What's PCA?
   Principal component analysis, or PCA, is a statistical procedure that allows you to summarize the information content in large data tables by means of a smaller set of “summary indices” that can be more easily visualized and analyzed.
@@ -39,7 +41,7 @@
     
 # Pi
 ## What's Pi?
-Inorganic phosphate (Pi) is an essential nutrient to living organisms. It plays a key role in diverse biological processes, including osteoblast differentiation and skeletal mineralization.
+Nucleotide diversity (often referred to using the symbol π) is the average pairwise difference between all possible pairs of individuals in your sample. It is a very intuitive and simple measure of genetic diversity, and is accurately estimated even with very few samples.
 ## commands
     vcftools --vcf ../all_samples_mapped2Ger.hardfiltered.bi.vcf --keep $i.txt --recode --recode-INFO-all --out pop_${i}
     vcftools --vcf pop_${i}.recode.vcf --out ${i}_pi_500kb --window-pi 500000 --window-pi-step 50000
