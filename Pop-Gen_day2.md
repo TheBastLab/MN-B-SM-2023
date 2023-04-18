@@ -77,4 +77,4 @@ h_exp = (2*freqs*(ssize-freqs))/(ssize*(ssize-1)) #Same as theta_pi, but separat
 fis = (h_exp-h_obs)/h_exp
 mean(fis)
 ```
-
+Note that in clonal populations, Fis becomes negative, and in inbreeding populations, Fis becomes positive.
