@@ -42,19 +42,39 @@ paste("Text_",x,"_text.txt",sep="") #Concatenate character strings, useful for f
 ```
 pop.sites = as.matrix(read.table("pop_file.txt",header=FALSE))
 pop.pos = read.table("pop_file_pos.txt",header=FALSE)[,1]
-
+seqlength=1000000
 ```
 
 ## Calculating Basic Population Statistics
 
 Here are the R commands used to calculate the relevant statistics. These will be added after class.
 
+Allele Frequency Spectrum
+```
+dim(pop.sites) #Check number of rows (haplotypes) and columns (variable sites) in data
+ssize = nrow(pop.sites) #Sample size in number of haplotypes, 2n
+freqs = apply(pop.sites,2,sum) #Frequency of each SNP (count of haplotypes with the derived allele), as a vector
+table(freqs) #Unfolded spectrum
+table((ssize/2)-abs(freqs-(ssize/2))) #Folded spectrum
+```
+
 Theta_pi
+```
+theta_pi = sum((2*freqs*(ssize-freqs))/(ssize*(ssize-1))) #Pairwise comparison, the "-1" is to exclude self-compare
+theta_pi_persite = theta_pi/seqlength
+```
 
 Theta_w
-
-Allele Frequency Spectrum
+```
+theta_w = ncol(pop.sites)/sum(1/1:(ssize-1))
+theta_w_persite = theta_w/seqlength
+```
 
 Fis (Hardy-Weinburg)
-
+```
+h_obs = apply(pop.sites[1:(ssize/2),] != pop.sites[(1:(ssize/2))+ssize/2,],2,mean) #Observed heterozygosity, i.e. how many individuals are heterozygote for this site. Note this is assuming that the rows are organized such that the first half are haplotype 1 and second half are haplotype 2.
+h_exp = (2*freqs*(ssize-freqs))/(ssize*(ssize-1)) #Same as theta_pi, but separated for each site instead of a sum
+fis = (h_exp-h_obs)/h_exp
+mean(fis)
+```
 
