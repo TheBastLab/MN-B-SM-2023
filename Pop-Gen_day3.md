@@ -23,7 +23,9 @@
 ## plot
     R
     library(data.table)
+    install.packages("tidyverse")
     library(tidyverse)
+    install.packages("ggrepel")
     library(ggrepel) 
     re1a = fread("all_samples_mapped2Ger.hardfiltered.bi.plink.vcf_bfile_pca20.eigenval")
     re1b = fread("all_samples_mapped2Ger.hardfiltered.bi.plink.vcf_bfile_pca20.eigenvec")
